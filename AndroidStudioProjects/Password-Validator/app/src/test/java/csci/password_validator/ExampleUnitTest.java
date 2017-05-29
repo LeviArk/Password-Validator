@@ -14,4 +14,17 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void password_isCorrect() throws Exception
+    {
+        MainActivity tester = new MainActivity();
+        String password1 = "password";
+        String password2 = "zero";
+        String password3 = "fishsticks";
+        assertEquals(tester.PasswordVerify(password1),1);
+        assertEquals(tester.PasswordVerify(password2),1);
+        assertEquals(tester.PasswordVerify(password3),2);
+
+    }
 }

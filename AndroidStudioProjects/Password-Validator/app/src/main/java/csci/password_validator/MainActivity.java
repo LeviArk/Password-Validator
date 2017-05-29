@@ -2,6 +2,7 @@
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,9 +20,30 @@ import android.widget.TextView;
         password = (EditText) findViewById(R.id.passwordText);
     }
 
-    public void passwordChange()
+    public void passwordChanger(View view)
     {
         String passwordHold =  password.getText().toString();
-        edit.setText(passwordHold);
+        int verify = PasswordVerify(passwordHold);
+        if (verify != 2)
+            edit.setText("Not a Strong Password");
+        else
+            edit.setText("This password is fine.");
     }
+
+
+    public int PasswordVerify(String verified)
+    {
+        int count = 0;
+        if (!verified.equals("password"))
+        {
+            count++;
+        }
+        if (!(verified.length() <8))
+        {
+            count ++;
+        }
+
+        return count;
+    }
+
 }
