@@ -21,10 +21,19 @@ public class ExampleUnitTest {
         MainActivity tester = new MainActivity();
         String password1 = "password";
         String password2 = "zero";
-        String password3 = "fishsticks2";
-        assertEquals(tester.PasswordVerify(password1),1);
-        assertEquals(tester.PasswordVerify(password2),1);
-        assertEquals(tester.PasswordVerify(password3),2);
+        String password3 = "Fishsticks2";
+        String password4 = "testthemall";
+        String password5 = "TESTTHEMALL";
+        String password6 = "abcdefg1";
+        String password7 = "abcdefGH";
+        assertEquals(1,tester.PasswordVerify(password1));
+        assertEquals(1,tester.PasswordVerify(password2));
+        assertEquals(5, tester.PasswordVerify(password3));
+        assertEquals(3, tester.PasswordVerify(password4));
+        assertEquals(3, tester.PasswordVerify(password5));
+        assertEquals(4, tester.PasswordVerify(password6));
+        assertEquals(4, tester.PasswordVerify(password7));
+
 
     }
 }

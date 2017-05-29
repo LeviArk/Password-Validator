@@ -24,7 +24,7 @@ import android.widget.TextView;
     {
         String passwordHold =  password.getText().toString();
         int verify = PasswordVerify(passwordHold);
-        if (verify != 2)
+        if (verify != 5)
             edit.setText("Not a Strong Password");
         else
             edit.setText("This password is fine.");
@@ -34,15 +34,20 @@ import android.widget.TextView;
     public int PasswordVerify(String verified)
     {
         int count = 0;
-        if (!verified.equals("password"))
-        {
+        if (!verified.equals("password")) {//Not password
             count++;
-        }
-        if (!(verified.length() <8))
-        {
-            count ++;
-        }
-
+        } else
+            return 1;
+        if (!(verified.length() <8)) { //8 or more
+            count++;
+        } else
+            return 1;
+        if (verified.matches(".*[A-Z]+.*"))//Contains at least one Capital
+            count++;
+        if (verified.matches(".*[a-z]+.*")) //Contains at least one Lowercase
+            count++;
+        if (verified.matches(".*[1-9]+.*")) // contains at least one number
+            count++;
         return count;
     }
 
