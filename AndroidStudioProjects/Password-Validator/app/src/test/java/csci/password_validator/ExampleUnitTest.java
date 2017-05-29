@@ -21,7 +21,7 @@ public class ExampleUnitTest {
         MainActivity tester = new MainActivity();
         String password1 = "password";
         String password2 = "zero";
-        String password3 = "fishsticks";
+        String password3 = "fishsticks2";
         assertEquals(tester.PasswordVerify(password1),1);
         assertEquals(tester.PasswordVerify(password2),1);
         assertEquals(tester.PasswordVerify(password3),2);
